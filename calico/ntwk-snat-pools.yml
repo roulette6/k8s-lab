@@ -1,0 +1,10 @@
+---
+# apiVersion: crd.projectcalico.org/v1
+apiVersion: projectcalico.org/v3
+kind: IPPool
+metadata:
+  name: nginx-snat-pool
+spec:
+  cidr: 192.168.2.1/32
+  natOutgoing: true
+  nodeSelector: all()

@@ -1,0 +1,19 @@
+---
+# Calico BGP configuration
+apiVersion: projectcalico.org/v3
+kind: BGPConfiguration
+metadata:
+  name: default
+spec:
+  serviceClusterIPs:
+    - cidr: 192.168.1.0/24  # Advertise service IPs via BGP
+  asNumber: 64555  # Your cluster's ASN
+---
+# BGP Peer to your firewall
+apiVersion: projectcalico.org/v3
+kind: BGPPeer
+metadata:
+  name: fortigate
+spec:
+  peerIP: 192.168.128.1  # Your firewall's IP
+  asNumber: 64550
