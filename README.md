@@ -13,6 +13,7 @@ curl -sfL https://get.k3s.io | sh -s - server \
   --flannel-backend=none \
   --disable-network-policy \
   --cluster-cidr=172.16.0.0/16 \
+  --service-cidr=172.17.0.0/16 \
   --disable=traefik \
   --node-ip $my_ip \
   --node-external-ip $my_ip \
@@ -35,6 +36,7 @@ curl -sfL https://get.k3s.io | sh -s - server \
   --flannel-backend=none \
   --disable-network-policy \
   --cluster-cidr=172.16.0.0/16 \
+  --service-cidr=172.17.0.0/16 \
   --disable=traefik \
   --node-ip $my_ip \
   --node-external-ip $my_ip \
@@ -46,9 +48,9 @@ mkdir -p $HOME/.kube && sudo cat /etc/rancher/k3s/k3s.yaml > $HOME/.kube/config
 Agent nodes
 
 ```shell
-K3S_TOKEN='TODO'
+K3S_TOKEN='K1006a22d2fb2a32db4b7e2c101f0d87c2ffbb84c26e529d1214e12998010fa7010::server:ee944cb349553124399bdbd026864f88'
 server_ip='192.168.128.141'
-my_ip='192.168.128.146'
+my_ip='192.168.128.142'
 
 curl -sfL https://get.k3s.io | sh -s - agent \
   --server https://$server_ip:6443 \
